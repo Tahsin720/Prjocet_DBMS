@@ -31,6 +31,7 @@
             $desfile = 'uploads/'.$filename;
             #echo "$desfile";
             move_uploaded_file($filepath, $desfile);
+            
             $sql = "UPDATE book SET name = '$name', author = '$author', image = '$filename', description = '$description', time = NOW(), isDonated = '$isDonated' WHERE isbn = '$isbn'";
             #echo $sql;
             $query = mysqli_query($con, $sql);
@@ -41,6 +42,19 @@
             else{
                 echo "Not Inserted!";
             }
+        }
+        else{
+            
+            $sql = "UPDATE book SET name = '$name', author = '$author', description = '$description', time = NOW(), isDonated = '$isDonated' WHERE isbn = '$isbn'";
+            #echo $sql;
+            $query = mysqli_query($con, $sql);
+            
+            if($query){
+                header('location: ..\my_book\book_view.php');
+            }
+            else{
+                echo "Not Inserted!";
+            } 
         }
     }
     else{
