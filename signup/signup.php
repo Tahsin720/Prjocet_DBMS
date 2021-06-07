@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,10 +63,27 @@
 				<div class = "loginbox">
 					<h1>Registrar Here</h1>
 					<form action="..\resigter\Registration.php" method="post"> 
-						<p>User name</p>
-						<input type = "text" name = "user" placeholder = "Enter User name">
-						<p>Password</p>
-						<input type = "Password" name = "password"placeholder="Enter Password">
+						<p>User name<font color =red>*</font></p>
+						<input type = "text" name = "user" placeholder = "Enter User name" required>
+						
+						<p>Password<font color =red>*</font></p>
+						<input type = "Password" name = "password" placeholder="Enter Password" required>
+						
+						<p>Email<font color =red>*</font></p>
+						<input type = "text" name = "email"placeholder="Enter Email" required>
+						
+						<p>First Name<font color =red>*</font></p>
+						<input type = "text" name = "firstname"placeholder="Enter First Name" required>
+						
+						<p>Last Name<font color =red>*</font></p>
+						<input type = "text" name = "lastname"placeholder="Enter Last Name" required>
+						
+						<p>Phone Number</p>
+						<input type = "text" name = "phone"placeholder="Enter Phone Number">
+						
+						<p>Location<font color =red>*</font></p>
+						<input type = "text" name = "location"placeholder="Enter Location" required>
+						
 						<input type = "submit" name = "" value = "Sign Up">
 
 					</form>

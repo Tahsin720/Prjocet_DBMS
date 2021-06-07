@@ -16,19 +16,27 @@ if ($con->connect_error) {
   die("Connection failed: " . $con->connect_error);
 }
 
+if(isset($_POST['submit'])){
+	if ($pass == $re_type) {
+		echo "Entered!";
+		$enc_pass = md5($pass);
+		$sql = "UPDATE user SET password = '$enc_pass' WHERE username = '$name'";
 
-if ($pass == $re_type) {
-	echo "Entered!";
-	$sql = "UPDATE registration SET password = '$pass' WHERE username = '$name'";
+		if ($con->query($sql) === TRUE) {
+		echo "Record updated successfully";
+		header('location: ..\login\login.php');
+		} 
+	}
 
-	if ($con->query($sql) === TRUE) {
-	  echo "Record updated successfully";
-	} 
-}
-
-else {
-  	header('location: ..\login\html_login.php');
+	else {
+		header('location: ..\login\login.php');
+	}
 }
 
 $con->close();
 ?>
+
+
+
+
+
