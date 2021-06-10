@@ -42,6 +42,7 @@
                                 <th>isbn</th>
                                 <th>User Name</th>
                                 <th>Delivery Man Id</th>
+                                <th>Remove Request</th>
                             </tr>
                         </thead>
             
@@ -59,6 +60,7 @@
                                 <td><?php echo $row['book_id'] ?></td>
                                 <td><?php echo $row['username'] ?></td>
                                 <td><?php echo $row['deliveryManid'] ?></td>
+                                <td><button class="btn"> <a class = "rating" href="remove_req.php?reqId=<?php echo $row['reqId']; ?>">Remove</a> </button></td>
                             </tr>
 
                         <?php
